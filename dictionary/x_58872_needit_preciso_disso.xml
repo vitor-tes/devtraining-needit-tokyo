@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element audit="true" db_object_id="5d18933747046d10a64c1c34836d430b" extends="task" label="Preciso disso" max_length="40" name="x_58872_needit_preciso_disso" type="collection">
+        <element attributes="edge_encryption_enabled=true" label="Data da entrega" mandatory="true" max_length="40" name="data_da_entrega" type="glide_date_time"/>
+        <element attributes="encode_utf8=false" label="Solicitado por" mandatory="true" max_length="32" name="solicitado_por" reference="sys_user" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="legal" label="Tipo de solicitação" mandatory="true" max_length="40" name="tipo_de_solicitao" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Recursos Humanos" sequence="0" value="rh"/>
+                <element inactive_on_update="false" label="instalações" sequence="1" value="instalações"/>
+                <element inactive_on_update="false" label="legal" sequence="2" value="legal"/>
+                <element inactive_on_update="false" label="Sua escolha de departamento" sequence="3" value="your_choice"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" choice="1" default="legal 1" label="o que precisava" mandatory="true" max_length="40" name="u_choice_5" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Recursos Humanos 1" sequence="0" value="recursos humanos 1"/>
+                <element inactive_on_update="false" label="Recursos Humanos 2" sequence="1" value="recursos humanos 2"/>
+                <element inactive_on_update="false" label="Instalações 1" sequence="2" value="instalações 1"/>
+                <element inactive_on_update="false" label="instalações 2" sequence="3" value="instalações 2"/>
+                <element inactive_on_update="false" label="Legal 1" sequence="4" value="legal 1"/>
+                <element inactive_on_update="false" label="Legal 2" sequence="5" value="legal 2"/>
+                <element inactive_on_update="false" label="Sua escolha de departamento 1" sequence="6" value="sua escolha de departamento 1"/>
+                <element inactive_on_update="false" label="Sua escolha de departamento 2" sequence="7" value="sua escolha de departamento 2"/>
+            </choice>
+        </element>
+    </element>
+</database>
