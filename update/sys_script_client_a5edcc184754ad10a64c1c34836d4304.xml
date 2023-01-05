@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>Exiba apenas as opções necessárias que correspondam ao valor do tipo de solicitação.</description>
+        <field>u_request_type</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Opções de tipo de solicitação NeedIt</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+    if ( newValue == '') {
+      return;
+    }
+    
+    var whatneeded = g_form.getValue('u_what_needed');
+    
+   // Limpa todas as opções da lista de opções do campo O que é necessário
+    g_form.clearOptions('u_what_needed');
+    
+    // Se o valor do campo Tipo de solicitação for hr, adicione
+    // duas opções de hr e outra para a lista de opções de campo O que é necessário
+    if(newValue == 'hr'){
+      g_form.addOption('u_what_needed','hr1','Human Resources 1');
+      g_form.addOption('u_what_needed','hr2','Human Resources 2');
+      g_form.addOption('u_what_needed','other','Other');
+    }
+     // Se o valor do campo Tipo de solicitação for facilidades, adicione
+    // duas opções de instalações e outra para o campo O que precisa
+    // lista de escolha
+    if(newValue == 'facilities'){
+      g_form.addOption('u_what_needed','facilities1','Facilities 1');
+      g_form.addOption('u_what_needed','facilities2','Facilities 2');
+      g_form.addOption('u_what_needed','other','Other');
+    }
+    // Se o valor do campo Tipo de solicitação for legal, adicione
+    // duas opções legais e outra para o campo O que é necessário
+    // lista de escolha
+    if(newValue == 'legal'){
+      g_form.addOption('u_what_needed','legal1','Legal 1');
+      g_form.addOption('u_what_needed','legal2','Legal 2');
+      g_form.addOption('u_what_needed','other','Other');
+    }
+    
+     // Se o formulário estiver carregando e não for um novo registro, defina o valor u_what_needed para o
+    // valor do registro antes de ser carregado
+    if(isLoading && !g_form.isNewRecord()){
+      g_form.setValue('u_what_needed', whatneeded);
+    }
+  }]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-01-05 18:33:37</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>a5edcc184754ad10a64c1c34836d4304</sys_id>
+        <sys_name>Opções de tipo de solicitação NeedIt</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_script_client_a5edcc184754ad10a64c1c34836d4304</sys_update_name>
+        <table>x_58872_needit_needit</table>
+        <type>onChange</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>
